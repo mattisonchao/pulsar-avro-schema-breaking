@@ -59,3 +59,7 @@ org.apache.pulsar.broker.service.schema.exceptions.InvalidSchemaDataException: I
 ```
 
 This demonstrates the breaking change in schema handling introduced in Pulsar 4.1.x.
+
+## Root Cause
+
+The issue stems from a change in Apache Avro where namespace validation was added (see [apache/avro#2513](https://github.com/apache/avro/pull/2513/files#diff-fee0506b175d3befabdbba7a07dfeb7755c923bed05b876d35d6598dbd7f277f)). Some older versions of `avro-protobuf` generate schemas with an invalid `$` in the namespace, which is no longer permitted by the stricter validation in newer Avro versions used by Pulsar 4.1.x.
