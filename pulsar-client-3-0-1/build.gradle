@@ -1,0 +1,12 @@
+plugins {
+    id "application"
+}
+
+application {
+    mainClass = "io.github.mattison.Application"
+}
+
+dependencies {
+    implementation "org.apache.pulsar:pulsar-client:3.0.1"
+    implementation project(":pojo")
+}
